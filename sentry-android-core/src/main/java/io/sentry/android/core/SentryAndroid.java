@@ -189,7 +189,7 @@ public final class SentryAndroid {
             scopes.startSession();
           }
         }
-        scopes.getOptions().getReplayController().start();
+//        scopes.getOptions().getReplayController().start();
       }
     } catch (IllegalAccessException e) {
       logger.log(SentryLevel.FATAL, "Fatal error during SentryAndroid.init(...)", e);
