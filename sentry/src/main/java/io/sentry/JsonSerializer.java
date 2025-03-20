@@ -237,13 +237,15 @@ public final class JsonSerializer implements ISerializer {
         try {
           // When this throws we don't write anything and continue with the next item.
           final byte[] data = item.getData();
+          String msg = new String(data, UTF_8);
 
           item.getHeader()
               .serialize(new JsonObjectWriter(writer, options.getMaxDepth()), options.getLogger());
           writer.write("\n");
           writer.flush();
 
-          outputStream.write(data);
+          writer.write(msg);
+//          outputStream.write(data);
 
           writer.write("\n");
         } catch (Exception exception) {
